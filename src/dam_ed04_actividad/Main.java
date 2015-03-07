@@ -11,22 +11,26 @@ public class Main {
     public static void main(String[] args) {
         //Vamos a introducir algún cambio en nuestro fichero para que quede reflejado
         //en GitHub
-        CCuenta miCuenta;
+        CCuenta cuenta1;
         double saldoActual;
         
         //Aquí creamos una nueva Cuenta Bancaria
-        miCuenta = new CCuenta("Antonio López","1000-2365-85-1230456789",2500,0);
-        saldoActual = miCuenta.estado();
+        cuenta1 = new CCuenta("Antonio López","1000-2365-85-1230456789",2500,0);
+        saldoActual = cuenta1.estado();
         System.out.println("El saldo actual es"+ saldoActual );
 
+        operativa_cuenta(cuenta1, 2300);
+    }
+
+    private static void operativa_cuenta(CCuenta cuenta1, float cantidad) {
         try {
-            miCuenta.retirar(2300);
+            cuenta1.retirar(cantidad);
         } catch (Exception e) {
             System.out.print("Fallo al retirar");
         }
         try {
             System.out.println("Ingreso en cuenta");
-            miCuenta.ingresar(695);
+            cuenta1.ingresar(695);
         } catch (Exception e) {
             System.out.print("Fallo al ingresar");
         }
